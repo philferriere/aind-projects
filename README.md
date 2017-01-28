@@ -1,20 +1,22 @@
-# Artificial Intelligence Nanodegree Projects
+Artificial Intelligence Nanodegree Projects
+===========================================
 
-## Introductory Project: Diagonal Sudoku Solver
+# Introductory Project: Diagonal Sudoku Solver
 
-# Question 1 (Naked Twins)
+## Question 1 (Naked Twins)
+
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: As explained in detail below, we first find pairs of identical values within each unit. To do this, we first identify potential candidates (boxes with only two digits) and match them in pairs (using sorting and grouping by value). After this, we simply remove the digits of the naked-twin pair from the other boxes in the unit. By repeatedly applying this constraint (along with other ones) until the Sudoku puzzle stops changing, we effectively perform constraint propagation.
+A: As explained [in detail](#naked-twins-rule) below, we first find pairs of identical values within each unit. To do this, we first identify potential candidates (boxes with only two digits) and match them in pairs (using sorting and grouping by value). After this, we simply remove the digits of the naked-twin pair from the other boxes in the unit. By repeatedly applying this constraint (along with other ones) until the Sudoku puzzle stops changing, we effectively perform constraint propagation.
 
-# Question 2 (Diagonal Sudoku)
+## Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: As also explained below, we perform constraint propagation by repeatedly enforcing the strategy rules, reducing the set of possible values toward a possible solution for the Sudoku. To solve the diagonal sudoku problem, we actually do not need to modify the constraint propagation code itself. The reason is simple: the constraint propagation code does not actually care *where* each unit is located in the puzzle. It only needs to know *which* units it needs to transform. To add support for the diagonal constraint, we only had to **create two additional units that represent the diagonals of the grid**, as shown at the end of the `Discussion` section of this document.
+A: As also explained [below](#adding-support-for-diagonal-sudoku), we perform constraint propagation by repeatedly enforcing the strategy rules, reducing the set of possible values toward a possible solution for the Sudoku. To solve the diagonal sudoku problem, we actually do not need to modify the constraint propagation code itself. The reason is simple: the constraint propagation code does not actually care *where* each unit is located in the puzzle. It only needs to know *which* units it needs to transform. To add support for the diagonal constraint, we only had to **create two additional units that represent the diagonals of the grid**, as shown at the end of the `Discussion` section of this document.
 
-### Install
+## Install
 
 This project requires **Python 3**. We installed [Anaconda3 v4.3.7](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. We also used the saved environment provided in the Anaconda lesson of the Nanodegree. Finally, we installed [pygame](http://www.pygame.org/download.shtml) to visualize the Sudoku updates performed by our solver.
 
-### Code
+## Code
 
 * `solutions.py` - Contains the code for our Sudoku solver (see `Sudoku` class).
 * `solution_test.py` - Unmodified, as provided by the Udacity staff to test our solution (run `python solution_test.py`).
@@ -24,26 +26,27 @@ This project requires **Python 3**. We installed [Anaconda3 v4.3.7](https://www.
 This code can be tested as follows:
 
 ```
-$ conda activate aind
+$ source activate aind
 (aind) $ cd ~
 (aind) $ git clone https://github.com/philferriere/aind-projects.git
 (aind) $ cd aind-projects/sudoku
 (aind) $ python solution_test.py
+(aind) $ python solution.py
 ```
 
-### Results
+## Results
 
 Our solver passed the unit tests and generated the following results:
 
 ![Screenshot](img/sudoku-term.png)
 
-### Visualization
+## Visualization
 
 Here's a visualization of the Sudoku at work:
 
 ![Visualization](img/sudoku-anim.gif)
 
-### Discussion
+## Discussion
 
 As explained in [1], the objective of Sudoku is to fill a 9×9 grid of **boxes** with digits (numbers 1 to 9) so that each **unit** (column of boxes, row of boxes, or nine 3×3 subgrids) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a unique solution, as illustrated below:
 
@@ -64,7 +67,7 @@ As shown in [2], there are many strategies players can use in order to solve Sud
 - *Only-choice rule* - If a box in a unit would only allow for a specific digit, then that box must be assigned that digit.
 - *Naked-twins rule* - Identify naked twins (two boxes in the same unit having the same two digits) and remove their individual digits from unit peers.
 
-#### Constraint Propagation
+### Constraint Propagation
 
 To enforce these rules, we use **constraint propagation**. As explained in [4], **constraint satisfaction** is the process of finding a solution to a set of constraints that impose conditions that variables must satisfy. A solution is therefore a set of values for the variables that satisfies all constraints. To converge toward that set of values, we repeatedly enforce the strategy rules, reducing the set of possible values toward a possible solution for the Sudoku. As explained in [5], this rule enforcement (a.k.a. transformation) is called **constraint propagation**.
 
@@ -108,6 +111,8 @@ From a coding perspective, this simply means that we loop through each transform
 
 After this, if we haven't solved the puzzle, we switch to **search**, where we systematically try different values until we find a solution (see `Search` section).
 
+#### Elimination and Only Choice Rules
+
 The code used to enforce the first two rules is fairly straightforward, as shown below:
 
 ```python
@@ -140,6 +145,8 @@ The code used to enforce the first two rules is fairly straightforward, as shown
                             self.assign_value(unit[box_idx], digit)
 ```
 
+#### Naked Twins Rule
+
 The code for finding naked twins is a little bit more complicated as we must find pairs of identical values within each unit. In order to do so, we first identify potential candidates (boxes with only two digits) and match them in pairs (using sorting and grouping by value). After this, we simply remove the digits of the naked-twin pair from the other boxes in the unit:
 
 ```python
@@ -163,9 +170,9 @@ The code for finding naked twins is a little bit more complicated as we must fin
                                         self.assign_value(box, self.values[box].replace(digit, ''))
 ``` 
 
-#### Search
+### Search
 
-If after constraint propagation we still haven't found a solution to the Sudoku puzzle, we simply switch to a *trial and error* approach. We look for boxes that have the smallest number of possible digits (two digits, then three, then four, etc.) and **pick one of the digits for that box**. Next, we apply constraint propagation of this tentative solution. If it results in a valid solution, then great, we're done. If after this, we've converged to a set of values where boxes can still take several values, we repeat this process, by looking again for a box with the smallest number of digits that we can pick. One will immediately recognize this recursive process as a typical **depth-first search**. Here's our implementation:
+If after constraint propagation we still haven't found a solution to the Sudoku puzzle, we simply switch to a *trial and error* approach. We look for boxes that have the smallest number of possible digits (two digits, then three, then four, etc.) and **pick one of the digits for that box**. Next, we apply constraint propagation on this tentative solution. If it results in a valid solution, then great, we're done. If after this, we've converged to a set of values where boxes can still take several values, we repeat this process, by looking again for a box with the smallest number of digits that we can test. One will immediately recognize this recursive process as a typical **depth-first search**. Here's our implementation:
 
 ```python
     def search(self):
@@ -216,7 +223,7 @@ If after constraint propagation we still haven't found a solution to the Sudoku 
         return False
 ```
 
-#### Adding Support for Diagonal Sudoku
+### Adding Support for Diagonal Sudoku
 
 A diagonal Sudoku has the additional constraint that the two diagonals of the puzzle must also contain all of the digits from 1 to 9. How much code did we have to change to add this constraint? Very little. None of the constraint propagation code as it turns out. The reason is simple: the constraint propagation code does not actually care *where* each unit is located in the puzzle. It only needs to know *which* units it needs to transform. To add support for the diagonal constraint, we only had to **create two additional units that represent the diagonals of the grid**, as shown below:
 
@@ -258,7 +265,11 @@ A diagonal Sudoku has the additional constraint that the two diagonals of the pu
 ### References
 
 [1] Sudoku @ https://en.wikipedia.org/wiki/Sudoku
+
 [2] Sudoku strategy @ http://www.sudokudragon.com/sudokustrategy.htm
+
 [3] Peter Norvig's Solving Every Sudoku Puzzle @ http://norvig.com/sudoku.html
+
 [4] Constraint satisfaction @ https://en.wikipedia.org/wiki/Constraint_satisfaction
+
 [5] Constraint propagation @ https://en.wikipedia.org/wiki/Local_consistency
