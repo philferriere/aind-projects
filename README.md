@@ -42,7 +42,7 @@ Our solver passed the unit tests and generated the following results:
 
 ## Visualization
 
-Here's a visualization of the Sudoku at work:
+Here's a visualization of the Sudoku solver at work:
 
 ![Visualization](img/sudoku-anim.gif)
 
@@ -50,8 +50,8 @@ Here's a visualization of the Sudoku at work:
 
 As explained in [1], the objective of Sudoku is to fill a 9×9 grid of **boxes** with digits (numbers 1 to 9) so that each **unit** (column of boxes, row of boxes, or nine 3×3 subgrids) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a unique solution, as illustrated below:
 
-![Unsolved Sudoku](img/sudoku-begin.svg)
-![Solved Sudoku](img/sudoku-done.svg)
+![Unsolved Sudoku](img/sudoku-begin.png)
+![Solved Sudoku](img/sudoku-done.png)
 
 Before discussing strategy, let's agree on a few naming and labelling conventions:
 
