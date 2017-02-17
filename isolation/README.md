@@ -4,7 +4,9 @@ Artificial Intelligence Nanodegree Projects
 # Udacity Staff Submissions
 
 Code file submission: [`game_agent.py`](./game_agent.py)
+
 Heuristic analysis submission: [`heuristic_analysis.pdf`](./heuristic_analysis.pdf)
+
 Research review submission: [`research_review.pdf`](./research_review.pdf)
 
 # Build a Game-Playing Agent
