@@ -46,10 +46,11 @@ For this project, we experimented with five different heuristics. Here's a summa
 |heuristic4()|**70.71%**|69.29%|
 |**heuristic5()**|62.14%|**70.00%**|
 
-Based on the detailed analysis below, we recommend using heuristics that take into account the following three factors:
-- use **positional advantage** to gain an early advantage in the game
-- use **optimized distance measures** (Manhattan vs Euclidean) in order to "do more" before timeout
-- use **sophisticated game mechanics** (see `heuristic5()`) to increase survival rate toward the end of the game
+We recommend using `heuristic5()` because of the four following factors:
+- it translates the notion of **positional advantage** to the specific L-shape knight-like moves allowed in the game
+- by counting L-shape jumps, it matches the use of a **proven distance measure** (Manhattan vs Euclidean)
+- it can leverage **sophisticated game mechanics** (max number of moves over min number of squares) to increase survival rate toward the end of the game (see `heuristic5()` details below)
+- it can leverage **function inlining** and **loop unrolling** to explore more branches before timeouts
 
 Below, we provide a justification for each heuristic as well as present how each performs against the `ID_Improved` heuristic provided by the Udacity staff.
 
