@@ -279,9 +279,9 @@ The challenges of DMAP are many. If a particular agent is unable to solve a prob
 ### DMAP Approaches
 
 As listed in [2], three recent approaches include:
-- Distributed Constraint Satisfaction Problem solving for coordination of the agents and individual planning using local search [4],
-- Multi-agent adaptation of A* with local heuristics [5],
-- Distribution of the GraphPlan approach based on merging of planning graphs [6].
+- Distributed Constraint Satisfaction Problem solving for coordination of the agents and individual planning using local search [3],
+- Multi-agent adaptation of A* with local heuristics [4],
+- Distribution of the GraphPlan approach based on merging of planning graphs [5].
 
 In [3], Nissim et al use the **DisCSP+Planning** algorithm to solve the multi-agent planning problem by separating the **public** and **private** aspects of the problems. In this paradigm, the public aspects (coordination between agents) is dealt with by the **coordination component** using a CSP searching for a sequence of **interaction points** between the agents and enforcing consistency requirements between actions. The local, internal aspect is dealt with by the **individual planning component** using a planner that handles the other types of constraints and encodes the local parts of the plan.
 
