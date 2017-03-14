@@ -1,0 +1,1 @@
+python run_search.py -p 1 -s 8 9 10 >> run_informed_search_p1_results.txt

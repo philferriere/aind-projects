@@ -13,7 +13,13 @@ For more information about this project, go [here](./sudoku/README.md).
 
 This game-playing agent uses techniques such as **iterative deepening**, **Minimax**, and **Alpha-Beta Pruning** to beat its opponent in a game of *Isolation* (a two-ply discrete competitive game with perfect information).
 
-For details about our implementation, please visit this [link](./isolation/README.md)
+For details about our implementation, please visit this [link](./isolation/README.md).
+
+# Planning Search
+
+For this project, we implement a planning search agent to solve deterministic logistics planning problems for an Air Cargo transport system. We use a **planning graph** and **automatic domain-independent heuristics with A* search** and compare their results/performance against several **uninformed non-heuristic search methods** (breadth-first, depth-first, etc.).
+
+Additional details can be found [here](./planning/README.md).
 
 # Contact Info
 
