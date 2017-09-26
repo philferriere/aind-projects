@@ -1,13 +1,19 @@
 Artificial Intelligence Nanodegree Projects
 ===========================================
 
-This repo contains our work on Udacity's Artificial Intelligence Nanodegree Projects.
+This repo contains our work on Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889) Projects.
 
 # Facial Expressions Identification
 
 In this project, we use [Affectiva’s Emotion-as-a-Service API](https://developer.affectiva.com) to **track faces** in a video and **identify facial expressions**. We tag each face with an appropriate emoji next to it. If you own a webcam, you may also play a simple game: mimic a random emoji we display and we will automatically recognize if your expression matches our random selection!
 
 Our implementation is available [here](./cv-mimic/README.md).
+
+# Sign Language Recognition
+
+Here, we use **HMMs (Hidden Markov Models)** to recognize gestures in American Sign Language, from individual words to complete sentences. We train our system on a dataset of videos that have been pre-processed and annotated, and test on novel sequences.
+
+click [here](./recognizer/asl_recognizer.ipynb) to review the IPython notebook for this project.
 
 # Planning Search
 
