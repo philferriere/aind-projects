@@ -1,0 +1,12 @@
+ Volume in drive E is datasets
+ Volume Serial Number is 1ED0-657B
+
+ Directory of e:\repos\aind\cv-facialkeypoints\data
+
+07/21/2017  03:58 PM    <DIR>          .
+07/21/2017  03:58 PM    <DIR>          ..
+07/21/2017  03:58 PM                 0 CSV_files_are_too_big.txt
+04/27/2013  01:09 AM        59,822,141 test.csv
+03/23/2013  08:03 AM       238,064,810 training.csv
+               3 File(s)    297,886,951 bytes
+               2 Dir(s)  398,150,823,936 bytes free
