@@ -3,6 +3,12 @@ Artificial Intelligence Nanodegree Projects
 
 This repo contains our work on Udacity's Artificial Intelligence Nanodegree Projects.
 
+# Facial Expressions Identification
+
+In this project, we use [Affectiva’s Emotion-as-a-Service API](https://developer.affectiva.com) to **track faces** in a video and **identify facial expressions**. We tag each face with an appropriate emoji next to it. If you own a webcam, you may also play a simple game: mimic a random emoji we display and we will automatically recognize if your expression matches our random selection!
+
+Our implementation is available [here](./cv-mimic/README.md).
+
 # Planning Search
 
 For this project, we implement a planning search agent to solve deterministic logistics planning problems for an Air Cargo transport system. We use a **planning graph** and **automatic domain-independent heuristics with A* search** and compare their results/performance against several **uninformed non-heuristic search methods** (breadth-first, depth-first, etc.).
