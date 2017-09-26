@@ -3,11 +3,11 @@ Artificial Intelligence Nanodegree Projects
 
 This repo contains our work on Udacity's Artificial Intelligence Nanodegree Projects.
 
-# Diagonal Sudoku Solver
+# Planning Search
 
-In this introductory project, we use **constraint propagation** to find solutions to Sudoku puzzles, repeatedly applying game rules (constraints) until the Sudoku puzzle stops changing.
+For this project, we implement a planning search agent to solve deterministic logistics planning problems for an Air Cargo transport system. We use a **planning graph** and **automatic domain-independent heuristics with A* search** and compare their results/performance against several **uninformed non-heuristic search methods** (breadth-first, depth-first, etc.).
 
-For more information about this project, go [here](./sudoku/README.md).
+Additional details can be found [here](./planning/README.md).
 
 # Game-Playing Agent
 
@@ -15,15 +15,15 @@ This game-playing agent uses techniques such as **iterative deepening**, **Minim
 
 For details about our implementation, please visit this [link](./isolation/README.md).
 
-# Planning Search
+# Diagonal Sudoku Solver
 
-For this project, we implement a planning search agent to solve deterministic logistics planning problems for an Air Cargo transport system. We use a **planning graph** and **automatic domain-independent heuristics with A* search** and compare their results/performance against several **uninformed non-heuristic search methods** (breadth-first, depth-first, etc.).
+In this introductory project, we use **constraint propagation** to find solutions to Sudoku puzzles, repeatedly applying game rules (constraints) until the Sudoku puzzle stops changing.
 
-Additional details can be found [here](./planning/README.md).
+For more information about this project, go [here](./sudoku/README.md).
 
 # Contact Info
 
 If you have any questions about this work, please feel free to contact us here:
 
-[![https://www.linkedin.com/in/philferriere](img/LinkedInDev.png)](https://www.linkedin.com/in/philferriere)
+[![https://www.linkedin.com/in/philferriere](img/LinkedInDLDev.png)](https://www.linkedin.com/in/philferriere)
 
