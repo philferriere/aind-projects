@@ -3,6 +3,16 @@ Artificial Intelligence Nanodegree Projects
 
 This repo contains our work on Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889) Projects.
 
+# Facial Keypoint Detection and Real-time Filtering [Capstone Project]
+TBD
+
+Our capstone project can be reviewed [here](./cv-facialkeypoints/README.md).
+
+# CNN-based Dog Breed Classifier
+For this computer vision problem, we experimented with two different **CNN (Convolutional Neural Network) architectures**. In our first approach, we built a CNN **from scratch**. Second, we used **transfer learning** to use pre-trained models (VGG-16, VGG-19, ResNet-50, Inception, Xception), only training the head of the network (the fully connected classification layer) for our specific application.
+
+The notebook for this project can be found [here](./dog-project/dog_app.ipynb).
+
 # Facial Expressions Identification
 
 In this project, we use [Affectiva’s Emotion-as-a-Service API](https://developer.affectiva.com) to **track faces** in a video and **identify facial expressions**. We tag each face with an appropriate emoji next to it. If you own a webcam, you may also play a simple game: mimic a random emoji we display and we will automatically recognize if your expression matches our random selection!
